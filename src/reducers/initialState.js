@@ -1,3 +1,6 @@
  export default {
-	vendors: []
+	vendors: [],
+	auth: {
+	    isLoggedIn: false
+	}
 };

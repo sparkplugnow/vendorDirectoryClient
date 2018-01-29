@@ -1,7 +1,7 @@
 import initialState from './initialState';
 import {FETCH_STUFF, RECEIVE_STUFF} from '../actions/index';
 
-export default function vendorReducer(state = initialState.vendors, action) {
+export default function vendorReducer(state = initialState, action) {
 	  let newState;
 	    switch (action.type) {
 		        case FETCH_STUFF:

@@ -1,16 +1,67 @@
 import React, { Component } from 'react';
-import Login from './Login';
 import './App.css';
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Button from 'material-ui/Button';
+import { withStyles } from 'material-ui/styles';
+import Paper from 'material-ui/Paper';
+import Grid from 'material-ui/Grid';
+import { FormControl, FormHelperText } from 'material-ui/Form';
+import Input, { InputLabel } from 'material-ui/Input';
+import TextField from 'material-ui/TextField';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
+import IconButton from 'material-ui/IconButton';
+import MenuIcon from 'material-ui-icons/Menu';
+import Login from './Features/Auth/Login';
+
+
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200,
+  },
+  menu: {
+    width: 200,
+  },
+  root: {
+    jusityContent: 'center'
+  }
+});
 
 class App extends Component {
+  
 
   render() {
+     const { classes } = this.props;
     return (
-      <div className="App">
-        <Login />
-      </div>
-    );
+   <div> 
+            <AppBar position="static">
+            <Toolbar>
+              <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+                <MenuIcon />
+              </IconButton>
+              <Typography type="title" color="inherit" className={classes.flex}>
+                Vendor Directory
+              </Typography>
+              
+
+      
+            </Toolbar>
+          </AppBar>
+          <Login/>
+   </div>
+  );
+
   }
 }
 
-export default App;
+
+
+export default withStyles(styles)(App);

@@ -12,9 +12,9 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  height: 100vh;
+  min-height: 125vh;
   width: 100%;
-  filter: blur(15px)
+  opacity: 0.3;
 }
 
 .login-form-positon{

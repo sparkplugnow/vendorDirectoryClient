@@ -5,3 +5,22 @@
 .fl w-10{
    height:40em;
 }
+/*login-reg*/
+
+.user-back{
+  background-image: url("http://architectureimg.com/wp-content/uploads/2016/08/houses-beautiful-place-shop-colorful-market-peaceful-building-vases-road-sky-water-greenery-balloons-store-city-clouds-buildings-house-grass-photography-town-high-resolution-1920x1080.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  filter: blur(15px)
+}
+
+.login-form-positon{
+  z-index: 99999;
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+}

@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Page from './components/User';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 
-ReactDOM.render(<Page />, document.getElementById('root'));
-
-// change the App to Page and Uncomment the Page import to view login and sign in 
+ReactDOM.render(
+    <Router>
+        <Route path="/" component={App} />
+    </Router>, document.getElementById('root'));

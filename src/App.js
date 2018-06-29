@@ -1,27 +1,33 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Header from './components/header';
 import Search from './components/search';
 import Info from './components/info';
 import './App.css';
-import {Switch, Route} from 'react-router-dom';
-import Page from './components/User'
+import AuthService from './components/helper/auth';
+import withAuth from './components/config/constants';
+const Auth = new AuthService();
 
 class App extends Component {
+  handleLogout() {
+    Auth.logout()
+    this
+      .props
+      .history
+      .replace('/login');
+  }
+
   render() {
-    const Home = () => (
-      <div className="App">
-        <Header /> <br />
-        <Search /> <br />
-        <Info />
-      </div>
-    );
     return (
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/Login" component={Page} />
-      </Switch>
+      <div className="App">
+        <button type="button" className="form-submit" onClick={this.handleLogout}>Logout</button>
+        <Header/>
+        <br/>
+        <Search/>
+        <br/>
+        <Info/>
+      </div>
     );
   }
 }
 
-export default App;
+export default withAuth(App);

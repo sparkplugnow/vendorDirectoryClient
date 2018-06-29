@@ -63,11 +63,11 @@ export default class Page extends Component {
             <div className="inline-flex-ns">
               <div className="mt3 mr2">
                   <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
-                  <input className="pa2 input-reset b--black-60 ba bg-transparent  w-100" type="email" name="email-address"  id="email-address" />
+                  <input className="pa2 input-reset b--black-60 ba bg-transparent  w-100" type="text" name="name"  id="name" />
               </div>
               <div className="mv3 mr2">
                   <label className="db fw6 lh-copy f6" htmlFor="Telephone">Telephone</label>
-                  <input className="b pa2 input-reset b--black-60 ba bg-transparent  w-100" type="password" name="password"  id="password" />
+                  <input className="b pa2 input-reset b--black-60 ba bg-transparent  w-100" type="text" name="telephone"  id="telephone" />
               </div>
             </div>
             <div className="inline-flex-ns">

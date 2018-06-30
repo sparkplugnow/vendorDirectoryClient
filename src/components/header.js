@@ -1,16 +1,8 @@
-import React, { Component } from 'react';
-import "./css/tachyons.min.css";
+import React ,{Component} from 'react';
+import logo from '../logo.jpg';
 
-class Header extends Component {
-  render() {
-    return (
-      <section className="mw4 center">
-        <div className=" fl w-10 br-100 pa5 bg-purple h3 ma3">
-
-        </div>
-      </section>
-    );
-  }
-}
-
-export default Header;
+export default () => (
+    <header className='tc pv4 pv5-ns'>
+        <img src={logo} alt="avatar" className="br-100 pa1 ba b--black-10 h3 w3"/>
+    </header>
+)

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './css/style.css';
+import '../../css/app.css';
 
 class AddVendor extends Component{
      createVendor(event){

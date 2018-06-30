@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import "./css/tachyons.min.css";
-import {formatPrice} from '../helpers';
+import "../../css/app.css";
+import {formatPrice} from '../../helpers';
 
 class VendorItem extends Component {
     render(){

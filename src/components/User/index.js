@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import AuthService from '../helper/auth';
+import axios from 'axios';
+
 export default class Page extends Component {
   state={
     signup: true,
@@ -37,11 +39,15 @@ export default class Page extends Component {
       Auth
     })  
     this.Auth.login(this.state.Auth.email,this.state.Auth.password)
-    .then(res=>{
-      this.props.history.replace("/");
-    })
-    .catch(err =>{
-      alert(err)
+      .then(res=>{
+        this.props.history.replace("/");
+      })
+      .catch(err =>{
+        alert(err)
+      })
+    this.setState({
+      signup: false,
+      signin: true
     })
 }
 
@@ -54,10 +60,17 @@ export default class Page extends Component {
     }
     const Reg = {...this.state.Reg}
     const stamp = Date.now();
-    Reg[`Reg-${stamp}`] = reg;
+    Reg[`reg-${stamp}`] = reg;
     this.setState({
       Reg
     })
+    console.log(...this.state.Reg)
+    axios.post('https://Prostus.herokuapp.com/register', {...this.state.Reg})
+      .then(function(response){
+          console.log('saved successfully',response.data)
+      }).catch(err =>{
+        alert(err)
+      }); 
   }
 
   componentDidMount(){
@@ -71,7 +84,7 @@ export default class Page extends Component {
 
     const Login = () => (
       <div className="">
-          <form onSubmit={(e)=> this.Login(e)} className="measure center">
+          <form method="POST" onSubmit={(e)=> this.Login(e)} className="measure center">
           <fieldset id="sign_up" className="b--black-80 ba b--transparent ph0 mh0">
             <legend className="f4 fw6 ph0 mh0">Sign In</legend>
             <div className="mt3">
@@ -103,7 +116,7 @@ export default class Page extends Component {
     
     const Register = () => (
       <div>
-        <form onSubmit={(e)=> this.register(e)} className="measure center">
+        <form method="POST" onSubmit={(e)=> this.register(e)} className="measure center">
             <fieldset id="sign_up" className="b--black-80 ba b--transparent ph0 mh0">
             <legend className="f4 fw6 ph0 mh0">Sign Up</legend>
             <div className="inline-flex-ns">
@@ -128,7 +141,7 @@ export default class Page extends Component {
             </div>
             </fieldset>
             <div className="">
-            <input className="b ph3 pv2 input-reset b--black-60 ba  bg-transparent grow pointer f6 dib" type="submit" value="Sign up" />
+            <input className="b ph3 pv2 input-reset b--black-60 ba  bg-transparent grow pointer f6 dib" type="submit" value="Sign up" onClick={(e)=> this.register(e)} />
             </div>
             <div className="lh-copy mt3">
             <a href="#0" className="f6 link dim black db" onClick={(e)=>this.toggleSignIn(e)}>Sign In</a>

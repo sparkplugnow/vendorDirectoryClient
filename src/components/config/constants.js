@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import AuthService from '../helper/auth';
 
 export default function withAuth(AuthComponent) {
-  const Auth = new AuthService('http://localhost:8080');
+  const Auth = new AuthService('https://Prostus.herokuapp.com');
   return class AuthWrapped extends Component {
     constructor() {
       super();
@@ -33,7 +33,9 @@ export default function withAuth(AuthComponent) {
       if (this.state.user) {
         return (<AuthComponent history={this.props.history} user={this.state.user}/>)
       } else {
-        return null
+        return (
+          <h1>loading....</h1>
+        )
       }
     }
   }

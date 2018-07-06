@@ -8,6 +8,11 @@ import withAuth from './components/config/constants';
 const Auth = new AuthService();
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.handleLogout = this.handleLogout.bind(this)
+  }
+  
   handleLogout() {
     Auth.logout()
     this

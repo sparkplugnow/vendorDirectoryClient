@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import AuthService from '../helper/auth';
 import axios from 'axios';
+import { observer } from 'mobx-react';
+import { observable } from 'mobx';
+import DevTools from 'mobx-react-devtools'
 
-export default class Page extends Component {
-  state={
+@observer export default class Page extends Component {
+   state={
     signup: true,
     signin: false,
     Auth: {},
@@ -164,7 +167,8 @@ export default class Page extends Component {
         <div className="login-form-positon ">
         <div className="tc">
           <img src="http://tachyons.io/img/avatar_1.jpg" className="br-100 h3 w3 dib ba b--black-60-05 pa2" alt="company logo" title="logo of the company" style={{paddingBotom: '0px'}}/>
-          <h1 className="f3 mt1 mb4">Vendor</h1>
+          <h1 className="f3 mt1 mb4">Vendor</h1>\
+          <DevTools />
         </div>
         <div className=" pa4 black-80 tc">
           {signin === true && <Login />}

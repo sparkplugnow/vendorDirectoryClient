@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Page from './components/User'
+import Page from './components/User';
+import { Provider } from 'mobx';
 
 ReactDOM.render(
     <Router>
